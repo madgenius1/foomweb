@@ -1,23 +1,111 @@
+'use client'
 
+import Link from 'next/link';
+import { useState } from 'react';
+import { HiBars3, HiXMark } from 'react-icons/hi2';
 
 export default function Navbar() {
+    const [isOpen, setIsOpen] = useState(false);
+
     return (
-        <nav className="sticky p-4 top-0 z-50 shadow-md">
-            <div className="flex items-center flex-row justify-between max-w-screen-xl mx-auto">
-                <div className="flex justify-start">
-                    <h3 className="text-md text-gray-950">Logo Link</h3>
+        <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm shadow-md">
+            <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
+                {/* Logo Section */}
+                <div className="flex lg:flex-1">
+                    <Link href="/" className="-m-1.5 p-1.5">
+                        <span className="sr-only">Foom</span>
+                        <span className="text-xl font-bold text-gray-900">Your Logo</span>
+                    </Link>
                 </div>
-                <div className=" flex justify-center flex-row gap-4 space-x-2">
-                    <h3 className="text-md text-gray-950">Item One</h3>
-                    <h3 className="text-md text-gray-950">Item Two</h3>
-                    <h3 className="text-md text-gray-950">Item Three</h3>
-                    <h3 className="text-md text-gray-950">Item Four</h3>
+
+                {/* Desktop Menu */}
+                <div className="hidden lg:flex lg:gap-x-12">
+                    <Link href="/services" className="text-md font-semibold leading-6 text-gray-900 transition-colors duration-200 hover:text-purple-600">
+                        Features
+                    </Link>
+                    <Link href="/about" className="text-md font-semibold leading-6 text-gray-900 transition-colors duration-200 hover:text-purple-600">
+                        How it Works
+                    </Link>
+                    <Link href="/blog" className="text-md font-semibold leading-6 text-gray-900 transition-colors duration-200 hover:text-purple-600">
+                        About Us
+                    </Link>
+                    {/* <Link href="/contact" className="text-sm font-semibold leading-6 text-gray-900 transition-colors duration-200 hover:text-purple-600">
+                        Contact
+                    </Link> */}
                 </div>
-                <div className="flex flex-row gap-4 justify-end">
-                    <h3 className="text-md text-gray-950">Item One</h3>
-                    <h3 className="text-md text-gray-950">Item One</h3>
+
+                {/* Buttons Section */}
+                <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
+                    <button className="rounded-md border border-purple-600 bg-white px-4 py-2 text-md font-semibold text-purple-600 transition-colors duration-200 hover:bg-purple-600 hover:text-white">
+                        Android
+                    </button>
+                    <button className="rounded-md border-transparent bg-purple-600 px-4 py-2 text-md font-semibold text-white transition-colors duration-200 hover:bg-purple-700">
+                        iOS
+                    </button>
                 </div>
-            </div>
-        </nav>
-    )
+
+                {/* Mobile menu button */}
+                <div className="flex lg:hidden">
+                    <button
+                        type="button"
+                        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+                        onClick={() => setIsOpen(!isOpen)}
+                        aria-expanded={isOpen ? 'true' : 'false'}
+                        aria-controls="mobile-menu"
+                    >
+                        <span className="sr-only">Open main menu</span>
+                        {isOpen ? <HiXMark className="h-6 w-6" aria-hidden="true" /> : <HiBars3 className="h-6 w-6" aria-hidden="true" />}
+                    </button>
+                </div>
+            </nav>
+
+            {/* Mobile Menu (conditionally rendered) */}
+            {isOpen && (
+                <div className="lg:hidden" role="dialog" aria-modal="true">
+                    <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                        <div className="flex items-center justify-between">
+                            <a href="#" className="-m-1.5 p-1.5">
+                                <span className="sr-only">Foom</span>
+                                <span className="text-xl font-bold text-gray-900"> Logo</span>
+                            </a>
+                            <button
+                                type="button"
+                                className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                                onClick={() => setIsOpen(false)}
+                            >
+                                <span className="sr-only">Close menu</span>
+                                <HiXMark className="h-6 w-6" aria-hidden="true" />
+                            </button>
+                        </div>
+                        <div className="mt-6 flow-root">
+                            <div className="-my-6 divide-y divide-gray-500/10">
+                                <div className="space-y-2 py-6">
+                                    <Link href="/services" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                                        Features
+                                    </Link>
+                                    <Link href="/about" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                                        How It Works
+                                    </Link>
+                                    <Link href="/blog" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                                        About Us
+                                    </Link>
+                                    <Link href="/contact" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                                        Contact
+                                    </Link>
+                                </div>
+                                <div className="py-6">
+                                    <button className="w-full rounded-md border border-purple-600 bg-white px-4 py-2 text-sm font-semibold text-purple-600 transition-colors duration-200 hover:bg-purple-600 hover:text-white">
+                                        Android
+                                    </button>
+                                    <button className="mt-4 w-full rounded-md border-transparent bg-purple-600 px-4 py-2 text-sm font-semibold text-white transition-colors duration-200 hover:bg-purple-700">
+                                        iOS
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </header>
+    );
 }
