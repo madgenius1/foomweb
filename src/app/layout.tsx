@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { League_Spartan } from "next/font/google";
+import { Comfortaa } from "next/font/google";
 import "./globals.css";
 import Navbar from "./ui-items/common/Navbar";
 import Footer from "./ui-items/common/Footer";
 
 
-const leagueSpartan = League_Spartan({ subsets: ["latin"] });
+const comfortaa = Comfortaa({ subsets: ["latin"] });
 
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body className={leagueSpartan.className}>
+      <body className={comfortaa.className}>
         <Navbar />
         {children}
         <Footer />
