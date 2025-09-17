@@ -15,7 +15,7 @@ export default function Solution() {
                         Designed for Your Scrolling Habits
                     </h2>
                     <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                        Foom's design leverages your social media and gaming habits, transforming them into positive financial behaviors.
+                        Foom&apos;s design leverages your social media and gaming habits, transforming them into positive financial behaviors.
                     </p>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 pt-8 my-8">
