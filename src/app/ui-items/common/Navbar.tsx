@@ -17,8 +17,8 @@ export default function Navbar() {
                         <Image
                             src="/foom.svg"
                             alt="foom logo"
-                            width={160}
-                            height={80}
+                            width={140}
+                            height={70}
                         />
                     </Link>
                 </div>
@@ -41,12 +41,9 @@ export default function Navbar() {
 
                 {/* Buttons Section */}
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
-                    <button className="rounded-md border border-purple-600 bg-white px-4 py-2 text-md font-semibold text-purple-600 transition-colors duration-200 hover:bg-purple-600 hover:text-white">
-                        Android
-                    </button>
-                    <button className="rounded-md border-transparent bg-purple-600 px-4 py-2 text-md font-semibold text-white transition-colors duration-200 hover:bg-purple-700">
-                        iOS
-                    </button>
+                    <Link href="/waitlist" className="inline-block px-8 py-3 text-base font-semibold text-white bg-purple-600 rounded-lg shadow-md transition-colors duration-200 hover:bg-white hover:text-purple-600 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2">
+                        Join Waitlist
+                    </Link>
                 </div>
 
                 {/* Mobile menu button */}

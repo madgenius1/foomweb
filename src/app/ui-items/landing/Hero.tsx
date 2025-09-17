@@ -12,25 +12,31 @@ export default function Hero() {
                             Turn Your Screen Time Into Real Savings.
                         </h1>
                         <p className="text-gray-700 dark:text-gray-300 lg:text-xl md:text-lg">
-                            Transform hours spent on social media and gaming into tokens that grow into investments.
+                            Transform endless scrolling into real investments in Money Market Funds.
                         </p>
+                        <div className="py-4">
+                            <Link href="/waitlist" className="inline-block px-8 py-4 text-base font-semibold text-white bg-purple-600 rounded-lg shadow-md transition-colors duration-200 hover:bg-white hover:text-purple-600 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2">
+                                Join Waitlist
+                            </Link>
+                        </div>
                     </div>
-                    <div className="flex flex-col justify-start sm:flex-row gap-4 mt-8">
+                    {/* Uncomment links below when app is ready. */}
+                    {/* <div className="flex flex-col justify-start sm:flex-row gap-4 mt-8">
                         <Link href="/download" className="inline-block px-8 py-4 text-base font-semibold text-white bg-purple-600 rounded-lg shadow-md transition-colors duration-200 hover:bg-white hover:text-purple-600 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2">
                             Download App
                         </Link>
                         <Link href="/get-started" className="inline-block px-8 py-4 text-base font-semibold text-purple-600 bg-white rounded-lg border-2 border-purple-600 transition-colors duration-200 hover:bg-purple-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">
                             Get Started
                         </Link>
-                    </div>
+                    </div> */}
                 </div>
                 {/* Right Content */}
                 <div className="py-4 lg:py-8 w-full max-w-xl md:py-6">
                     <Image
                         src="/mobileappimage.png"
                         alt="Mobile App"
-                        width={600}
-                        height={450}
+                        width={500}
+                        height={350}
                         className="object-contain"
                         priority
                     />
