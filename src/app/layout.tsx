@@ -10,7 +10,7 @@ const comfortaa = Comfortaa({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Foom App",
-  description: "Invest while increasing productivity",
+  description: "Turn your screen time into savings and investments.",
 };
 
 export default function RootLayout({

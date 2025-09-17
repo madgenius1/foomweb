@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 const solutionsArray = [
     { url: "/money.webp", title: "Turn Screen Time to Income", statement: "Use your social media and gaming habits to earn and save money that grows over time." },
@@ -38,6 +39,11 @@ export default function Solution() {
                             </p>
                         </div>
                     ))}
+                </div>
+                <div className="pt-8 flex items-center justify-center">
+                    <Link href="/get-started" className="inline-block px-8 py-4 text-base font-semibold text-purple-600 bg-white rounded-lg border-2 border-purple-600 transition-colors duration-200 hover:bg-purple-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">
+                        Get Started
+                    </Link>
                 </div>
             </div>
         </section>
