@@ -3,7 +3,7 @@ import Link from "next/link"
 
 const solutionsArray = [
     { url: "/money.webp", title: "Turn Screen Time to Income", statement: "Use your social media and gaming habits to earn and save money that grows over time." },
-    { url: "/control.webp", title: "Build Financial Discipline", statement: "Develop strong financial habits and saving discipline with a system that works for you." },
+    { url: "/grow.webp", title: "Build Financial Discipline", statement: "Develop strong financial habits and saving discipline with a system that works for you." },
     { url: "/growth.webp", title: "Achieve Your Financial Goals", statement: "Stay on track and meet your personal financial goals with ease." },
 ]
 
