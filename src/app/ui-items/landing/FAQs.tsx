@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function FAQs() {
     return (
-        <section className="min-h-screen bg-gray-100 dark:bg-gray-900 ">
+        <section className="min-h-screen bg-gray-200 dark:bg-gray-900 ">
             <div className="lg:py-20 md:py-16 py-12 max-w-screen-xl mx-auto lg:px-8 md:px-6 px-4 flex lg:flex-row md:flex-row flex-col gap-6 lg:gap-4 ">
                 <div className="lg:flex md:flex items-center hidden lg:justify-end justify-center py-4 lg:w-1/3 md:w-1/3 w-full">
                     <Image
