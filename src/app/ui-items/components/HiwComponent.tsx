@@ -95,7 +95,7 @@ const Panel = ({
                             initial="closed"
                             animate="open"
                             exit="closed"
-                            className="px-4 py-2 bg-black/40 backdrop-blur-sm text-white"
+                            className="px-4 py-6 bg-black/40 backdrop-blur-sm text-white"
                         >
                             <p>{description}</p>
                         </motion.div>
@@ -146,7 +146,7 @@ const items = [
         id: 1,
         title: "Create Account",
         Icon: IoPersonAddOutline,
-        imgSrc: "/handshake.jpg",
+        imgSrc: "/handshake.webp",
         description:
             "Sign up in seconds and set up your FOOM profile. No complicated forms, just a quick start to saving while you scroll.",
     },
@@ -154,7 +154,7 @@ const items = [
         id: 2,
         title: "Link Account",
         Icon: IoLink,
-        imgSrc: "/linkaccount.jpg",
+        imgSrc: "/linkaccount.webp",
         description:
             "Securely connect your savings or investment account. Your money always stays safe and grows in your chosen account.",
     },
@@ -162,7 +162,7 @@ const items = [
         id: 3,
         title: "Manage Apps",
         Icon: IoApps,
-        imgSrc: "/manageapps.jpg",
+        imgSrc: "/manageapps.webp",
         description:
             "Pick the social and gaming apps you want to control. Foom tracks your time and turns every extra minute into savings.",
     },
@@ -170,7 +170,7 @@ const items = [
         id: 4,
         title: "Save and Invest",
         Icon: IoCashOutline,
-        imgSrc: "/savings.jpg",
+        imgSrc: "/savings.webp",
         description:
             "Each token you spend on screen time funds your savings or investments. Distraction becomes discipline — and hit your financial goals. You can withdraw at anytime.",
     },
