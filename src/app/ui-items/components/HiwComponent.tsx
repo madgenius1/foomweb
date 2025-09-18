@@ -1,97 +1,177 @@
-"use client";
+'use client'
 
-import Link from 'next/link';
-import { useState } from 'react';
+import { IoApps, IoLink, IoPersonAddOutline, IoCashOutline } from "react-icons/io5";
 
-interface AccordionItem {
-    title: string;
-    description: string;
-    // linkHref: string;
-    // linkText: string;
-}
+import { Dispatch, SetStateAction, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import { useWindowSize } from "@uidotdev/usehooks";
+import { IconType } from "react-icons";
 
-const accordionItems: AccordionItem[] = [
-    {
-        title: "What is the Foom app?",
-        description: "Overcome complexities and administrative bureaucracies.",
-        // linkHref: "/for-artists",
-        // linkText: "Discover More"
-    },
-    {
-        title: "How does Foom actually work?",
-        description: "Onboard your whole team, split revenue automatically.",
-        // linkHref: "/for-labels",
-        // linkText: "Discover More"
-    },
-    {
-        title: "Why should I pay to use my own screen time?",
-        description: "Manage your catalog and royalties with ease.",
-        //     linkHref: "/for-publishers",
-        //     linkText: "Learn More"
-    },
-    {
-        title: "Who is Foom for?",
-        description: "Manage your catalog and royalties with ease.",
-        //     linkHref: "/for-publishers",
-        //     linkText: "Learn More"
-    },
-    {
-        title: "What do I get out of using Foom?",
-        description: "Manage your catalog and royalties with ease.",
-        //     linkHref: "/for-publishers",
-        //     linkText: "Learn More"
-    }
-
-];
-
-export default function HiwComponent() {
-
-    const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-    const handleToggle = (index: number) => {
-        setOpenIndex(openIndex === index ? null : index);
-    };
+const HiwComponent = () => {
+    const [open, setOpen] = useState(items[0].id);
 
     return (
-        <div className="flex flex-col items-center lg:gap-8 md:gap-6 gap-4 py-4 w-full">
-            {accordionItems.map((item: AccordionItem, index: number) => (
-                <div
-                    key={index}
-                    className={`flex flex-col gap-2 w-full border-b border-gray-300 dark:border-gray-700 py-4 cursor-pointer`}
-                    onClick={() => handleToggle(index)}
-                >
-                    <div className="flex justify-between items-center">
-                        <h2 className="text-md lg:text-xl md:text-xl font-semibold dark:text-white text-[#121212]">
-                            {item.title}
-                        </h2>
-                        <svg
-                            className={`w-5 h-5 text-[#121212] dark:text-white transform transition-transform duration-300
-                                        ${openIndex === index ? 'rotate-180' : ''}`}
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </div>
-
-                    <div
-                        className={`overflow-hidden transition-all duration-300 ease-in-out p-2
-                                    ${openIndex === index ? 'max-h-96 opacity-100 mt-2' : 'max-h-0 opacity-0'}`}
-                    >
-                        <p className="text-sm w-full lg:text-md dark:text-white text-[#121212] mb-4">
-                            {item.description}
-                        </p>
-                        {/* <Link
-                            href={item.linkHref}
-                            className="px-6 py-3 lg:w-3/4 w-full rounded-md bg-white text-[#121212] hover:bg-gray-950 ring-[#121212] ring-2 hover:text-white dark:hover:ring-white dark:hover:text-white text-center font-medium block"
-                        >
-                            {item.linkText}
-                        </Link> */}
-                    </div>
-                </div>
-            ))}
-        </div>
+        <section className="p-4">
+            <div className="flex flex-col lg:flex-row h-fit lg:h-[450px] w-full max-w-6xl mx-auto shadow overflow-hidden">
+                {items.map((item) => {
+                    return (
+                        <Panel
+                            key={item.id}
+                            open={open}
+                            setOpen={setOpen}
+                            id={item.id}
+                            Icon={item.Icon}
+                            title={item.title}
+                            imgSrc={item.imgSrc}
+                            description={item.description}
+                        />
+                    );
+                })}
+            </div>
+        </section>
     );
+};
+
+interface PanelProps {
+    open: number;
+    setOpen: Dispatch<SetStateAction<number>>;
+    id: number;
+    Icon: IconType;
+    title: string;
+    imgSrc: string;
+    description: string;
 }
+
+const Panel = ({
+    open,
+    setOpen,
+    id,
+    Icon,
+    title,
+    imgSrc,
+    description,
+}: PanelProps) => {
+    const { width } = useWindowSize();
+    const isOpen = open === id;
+
+    return (
+        <>
+            <button
+                className="bg-white hover:bg-slate-50 transition-colors p-3 border-r-[1px] border-b-[1px] border-slate-200 flex flex-row-reverse lg:flex-col justify-end items-center gap-4 relative group"
+                onClick={() => setOpen(id)}
+            >
+                <span
+                    style={{
+                        writingMode: "vertical-lr",
+                    }}
+                    className="hidden text-gray-950 lg:block text-xl font-medium rotate-180"
+                >
+                    {title}
+                </span>
+                <span className="block lg:hidden text-xl font-light">{title}</span>
+                <div className="w-6 lg:w-full aspect-square bg-purple-600 text-white grid place-items-center">
+                    <Icon />
+                </div>
+                <span className="w-4 h-4 bg-white group-hover:bg-slate-50 transition-colors border-r-[1px] border-b-[1px] lg:border-b-0 lg:border-t-[1px] border-slate-200 rotate-45 absolute bottom-0 lg:bottom-[50%] right-[50%] lg:right-0 translate-y-[50%] translate-x-[50%] z-20" />
+            </button>
+
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        key={`panel-${id}`}
+                        variants={width && width > 1024 ? panelVariants : panelVariantsSm}
+                        initial="closed"
+                        animate="open"
+                        exit="closed"
+                        style={{
+                            backgroundImage: `url(${imgSrc})`,
+                            backgroundPosition: "center",
+                            backgroundSize: "cover",
+                        }}
+                        className="w-full h-full overflow-hidden relative bg-black flex items-end"
+                    >
+                        <motion.div
+                            variants={descriptionVariants}
+                            initial="closed"
+                            animate="open"
+                            exit="closed"
+                            className="px-4 py-2 bg-black/40 backdrop-blur-sm text-white"
+                        >
+                            <p>{description}</p>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </>
+    );
+};
+
+export default HiwComponent;
+
+const panelVariants = {
+    open: {
+        width: "100%",
+        height: "100%",
+    },
+    closed: {
+        width: "0%",
+        height: "100%",
+    },
+};
+
+const panelVariantsSm = {
+    open: {
+        width: "100%",
+        height: "200px",
+    },
+    closed: {
+        width: "100%",
+        height: "0px",
+    },
+};
+
+const descriptionVariants = {
+    open: {
+        opacity: 1,
+        y: "0%",
+        transition: {
+            delay: 0.125,
+        },
+    },
+    closed: { opacity: 0, y: "100%" },
+};
+
+const items = [
+    {
+        id: 1,
+        title: "Create Account",
+        Icon: IoPersonAddOutline,
+        imgSrc: "/handshake.jpg",
+        description:
+            "Sign up in seconds and set up your FOOM profile. No complicated forms, just a quick start to saving while you scroll.",
+    },
+    {
+        id: 2,
+        title: "Link Account",
+        Icon: IoLink,
+        imgSrc: "/linkaccount.jpg",
+        description:
+            "Securely connect your savings or investment account. Your money always stays safe and grows in your chosen account.",
+    },
+    {
+        id: 3,
+        title: "Manage Apps",
+        Icon: IoApps,
+        imgSrc: "/manageapps.jpg",
+        description:
+            "Pick the social and gaming apps you want to control. Foom tracks your time and turns every extra minute into savings.",
+    },
+    {
+        id: 4,
+        title: "Save and Invest",
+        Icon: IoCashOutline,
+        imgSrc: "/savings.jpg",
+        description:
+            "Each token you spend on screen time funds your savings or investments. Distraction becomes discipline — and hit your financial goals. You can withdraw at anytime.",
+    },
+];

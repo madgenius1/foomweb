@@ -25,13 +25,16 @@ export default function Navbar() {
 
                 {/* Desktop Menu */}
                 <div className="hidden lg:flex lg:gap-x-12">
-                    <Link href="/services" className="text-md font-semibold leading-6 text-gray-900 transition-colors duration-200 hover:text-purple-600">
+                    <Link href="/features" className="text-md font-semibold leading-6 text-gray-900 transition-colors duration-200 hover:text-purple-600">
                         Features
                     </Link>
-                    <Link href="/about" className="text-md font-semibold leading-6 text-gray-900 transition-colors duration-200 hover:text-purple-600">
+                    <Link href="/working" className="text-md font-semibold leading-6 text-gray-900 transition-colors duration-200 hover:text-purple-600">
                         How it Works
                     </Link>
-                    <Link href="/blog" className="text-md font-semibold leading-6 text-gray-900 transition-colors duration-200 hover:text-purple-600">
+                     <Link href="/FAQs" className="text-md font-semibold leading-6 text-gray-900 transition-colors duration-200 hover:text-purple-600">
+                        FAQs
+                    </Link>
+                    <Link href="/about" className="text-md font-semibold leading-6 text-gray-900 transition-colors duration-200 hover:text-purple-600">
                         About Us
                     </Link>
                     {/* <Link href="/contact" className="text-sm font-semibold leading-6 text-gray-900 transition-colors duration-200 hover:text-purple-600">

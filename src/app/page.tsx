@@ -2,7 +2,9 @@
 import CallToAction from "./ui-items/landing/CallToAction";
 import Hero from "./ui-items/landing/Hero";
 import Solution from "./ui-items/landing/Solution";
+import FAQs from "./ui-items/landing/FAQs";
 import HowItWorks from "./ui-items/landing/HowItWorks";
+
 
 
 export default function Page() {
@@ -11,6 +13,7 @@ export default function Page() {
       <Hero />
       <Solution />
       <CallToAction />
+      <FAQs />
       <HowItWorks />
     </main>
   );
