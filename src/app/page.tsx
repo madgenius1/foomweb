@@ -13,8 +13,8 @@ export default function Page() {
       <Hero />
       <Solution />
       <CallToAction />
-      <FAQs />
       <HowItWorks />
+      <FAQs />
     </main>
   );
 }
